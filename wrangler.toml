@@ -1,0 +1,22 @@
+# Wrangler configuration for the Northwest Trinity Worker.
+#
+# `name` MUST exactly match the project name already registered in the
+# Cloudflare dashboard (Workers & Pages → your project). A mismatch fails
+# the build with a clear error, but it's worth getting right up front.
+name = "nwtrinity"
+compatibility_date = "2026-08-20"
+main = "src/index.js"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# Create both namespaces under Storage & Databases → KV in the dashboard,
+# then paste each namespace's ID below. See README.md for the full walkthrough.
+[[kv_namespaces]]
+binding = "VISITOR_COUNT"
+id = "REPLACE-WITH-VISITOR-COUNT-NAMESPACE-ID"
+
+[[kv_namespaces]]
+binding = "TRACK_PLAYS"
+id = "REPLACE-WITH-TRACK-PLAYS-NAMESPACE-ID"

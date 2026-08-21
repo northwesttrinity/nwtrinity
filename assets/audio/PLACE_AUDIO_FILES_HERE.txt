@@ -1,0 +1,19 @@
+Drop your MP3 masters in this folder using the filenames already
+referenced in js/tracks.js:
+
+  01-the-timberline.mp3
+  02-pdx-in-the-mist.mp3
+  03-anywhere-any-day.mp3
+
+Notes:
+- MP3 (audio/mpeg) is the safest format for both the browser <audio>
+  element and Chromecast's default receiver.
+- Chromecast loads media directly from the receiver device, so files
+  must be reachable at a public HTTPS URL — this only works once the
+  site is deployed (it will NOT work when just opening index.html
+  locally on your computer).
+- Track durations in js/tracks.js are placeholders ("--:--") — update
+  them to match your actual files once you know the exact runtimes.
+- To rename tracks, reorder them, or change titles/durations, edit
+  js/tracks.js — the tracklist and player are generated from that file.
+- Delete this file once your audio is in place.

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NORTHWEST TRINITY — Recordings</title>
+<meta name="description" content="Northwest Trinity — music carried out of the evergreen. Official site and player.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- Ambient noise texture overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===================== NAV ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="wordmark">NORTHWEST TRINITY</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#recordings">Recordings</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" class="hero">
+  <div class="hero-scene" aria-hidden="true">
+    <svg class="hero-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0c1310"/>
+          <stop offset="55%" stop-color="#111c17"/>
+          <stop offset="100%" stop-color="#16221c"/>
+        </linearGradient>
+        <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1c2a23"/>
+          <stop offset="100%" stop-color="#16221c"/>
+        </linearGradient>
+        <linearGradient id="ridgeMid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#151f1a"/>
+          <stop offset="100%" stop-color="#0f1713"/>
+        </linearGradient>
+        <linearGradient id="fogGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c9d2c7" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#c9d2c7" stop-opacity="0.10"/>
+        </linearGradient>
+      </defs>
+
+      <rect x="0" y="0" width="1600" height="900" fill="url(#sky)"/>
+
+      <!-- distant ridge -->
+      <path d="M0,430 L120,390 240,420 360,360 480,400 620,340 760,395 900,350 1040,400 1180,365 1320,410 1460,375 1600,410 1600,900 0,900 Z" fill="url(#ridgeFar)"/>
+
+      <!-- mid treeline (jagged conifer silhouette) -->
+      <g fill="url(#ridgeMid)">
+        <path d="M0,560
+          L40,520 55,545 70,505 85,540 100,495 118,535
+          L150,470 168,520 185,480 205,525 222,485 245,530
+          L280,450 300,510 320,470 340,515 360,475 385,520
+          L420,440 445,505 468,460 490,515 512,470 535,520
+          L575,430 598,500 620,455 645,515 668,465 692,520
+          L735,420 758,500 782,450 805,515 828,460 852,520
+          L895,415 918,500 942,445 966,515 988,455 1012,520
+          L1058,410 1082,500 1106,440 1130,518 1152,455 1178,522
+          L1225,405 1250,500 1274,440 1298,520 1320,455 1345,522
+          L1392,400 1418,500 1442,438 1466,520 1488,455 1512,522
+          L1560,398 1580,500 1600,440
+          L1600,900 0,900 Z" />
+      </g>
+
+      <!-- fog band -->
+      <rect x="0" y="480" width="1600" height="220" fill="url(#fogGrad)"/>
+
+      <!-- foreground trees -->
+      <g fill="#0b110d">
+        <path d="M0,700
+          L30,640 48,672 66,624 84,668 100,610 120,660
+          L150,580 172,646 192,596 214,652 234,590 258,648
+          L295,560 318,640 340,585 364,650 386,585 412,646
+          L455,545 480,635 502,575 528,648 550,580 578,644
+          L625,540 650,632 674,570 700,646 722,578 750,642
+          L800,538 826,632 850,570 878,648 900,578 928,644
+          L980,540 1006,632 1030,572 1058,648 1080,580 1108,644
+          L1162,542 1188,632 1212,574 1240,648 1262,582 1290,644
+          L1345,545 1372,633 1396,576 1424,648 1446,584 1474,644
+          L1530,548 1556,633 1580,578 1600,640
+          L1600,900 0,900 Z"/>
+      </g>
+
+      <!-- rolling fog layers (animated) -->
+      <g class="fog-layer fog-1" opacity="0.5">
+        <ellipse cx="250" cy="620" rx="420" ry="46" fill="#c9d2c7" opacity="0.06"/>
+        <ellipse cx="900" cy="660" rx="520" ry="60" fill="#c9d2c7" opacity="0.05"/>
+        <ellipse cx="1400" cy="600" rx="380" ry="40" fill="#c9d2c7" opacity="0.06"/>
+      </g>
+      <g class="fog-layer fog-2" opacity="0.4">
+        <ellipse cx="600" cy="700" rx="500" ry="50" fill="#c9d2c7" opacity="0.05"/>
+        <ellipse cx="1300" cy="730" rx="420" ry="45" fill="#c9d2c7" opacity="0.05"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow">Recordings &amp; live transmissions</p>
+    <h1 class="hero-title">NORTHWEST TRINITY</h1>
+    <div class="hero-actions">
+      <a href="#recordings" class="btn btn-primary">Listen</a>
+      <a href="#about" class="btn btn-ghost">About</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ===================== RECORDINGS / PLAYER ===================== -->
+<section id="recordings" class="recordings">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Recordings</h2>
+      <p class="section-sub">Three transmissions. Play locally, or send to the room with Cast.</p>
+    </div>
+
+    <div class="tracklist" id="tracklist" role="list">
+      <!-- Track rows injected by js/player.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="about">
+  <div class="section-inner about-inner">
+    <div class="about-mark" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="72" height="72">
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#4a5d53" stroke-width="1"/>
+        <path d="M20,78 L45,42 60,64 75,38 100,78" fill="none" stroke="#e8a555" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="about-text">
+      From Tasmania to the Pacific Northwest, Northwest Trinity writes from wherever the fog
+      finds them. No timeline. Just recordings, arriving when they're ready.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer id="contact" class="site-footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-col">
+      <h3>Booking &amp; press</h3>
+      <a href="mailto:allbackhome@gmail.com">allbackhome@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h3>Elsewhere</h3>
+      <a href="https://fearofbeards.allbackhome.workers.dev/" target="_blank" rel="noopener">Fear of Beards</a>
+    </div>
+    <div class="footer-col footer-note">
+      <p>No socials linked. No schedule fixed.</p>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>All recordings on this site are original works written and performed by Northwest Trinity. All rights reserved. No portion may be reproduced, distributed, sampled, or used without prior written permission from the artist.</p>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span id="year"></span> Northwest Trinity. All recordings reserved.</span>
+    <span id="visitorCountWrap" class="visitor-count" hidden> · <span id="visitorCount"></span> visits</span>
+  </div>
+</footer>
+
+<!-- ===================== PERSISTENT PLAYER BAR ===================== -->
+<div class="player-bar" id="playerBar" aria-live="polite">
+  <div class="player-bar-inner">
+    <div class="player-meta">
+      <span class="player-track-num" id="pbNum">—</span>
+      <div class="player-track-text">
+        <span class="player-track-title" id="pbTitle">Nothing playing</span>
+        <span class="player-track-status" id="pbStatus">Select a recording</span>
+      </div>
+    </div>
+
+    <div class="player-controls">
+      <button class="ctrl-btn" id="pbPrev" aria-label="Previous track">
+        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM20 6L10 12l10 6z"/></svg>
+      </button>
+      <button class="ctrl-btn ctrl-play" id="pbPlay" aria-label="Play">
+        <svg id="pbPlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="ctrl-btn" id="pbNext" aria-label="Next track">
+        <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM4 6l10 6L4 18z"/></svg>
+      </button>
+    </div>
+
+    <div class="player-progress">
+      <span class="time" id="pbCurrent">0:00</span>
+      <input type="range" id="pbSeek" class="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+      <span class="time" id="pbDuration">0:00</span>
+    </div>
+
+    <div class="player-right">
+      <button class="cast-btn" id="pbCastBtn" aria-label="Cast to device" title="Cast to device">
+        <svg viewBox="0 0 24 24">
+          <path d="M1 18v3h3c0-1.66-1.34-3-3-3zm0-4v2c2.76 0 5 2.24 5 5h2c0-3.87-3.13-7-7-7zm18-7H5v1.63c3.96 1.28 7.09 4.41 8.37 8.37H19V7zM1 10v2c4.97 0 9 4.03 9 9h2c0-6.08-4.93-11-11-11zm20-7H3c-1.1 0-2 .9-2 2v3h2V5h18v14h-7v2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>
+        <span class="cast-label" id="pbCastLabel">Cast</span>
+      </button>
+      <button class="ctrl-btn vol-btn" id="pbMute" aria-label="Mute">
+        <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      </button>
+      <input type="range" id="pbVol" class="vol-slider" min="0" max="1" step="0.01" value="0.85" aria-label="Volume">
+    </div>
+  </div>
+</div>
+
+<audio id="audioEl" preload="none"></audio>
+
+<!-- Google Cast Sender SDK -->
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+
+<script src="js/tracks.js"></script>
+<script src="js/counters.js"></script>
+<script src="js/cast.js"></script>
+<script src="js/player.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
