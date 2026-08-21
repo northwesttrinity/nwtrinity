@@ -15,8 +15,8 @@ binding = "ASSETS"
 # then paste each namespace's ID below. See README.md for the full walkthrough.
 [[kv_namespaces]]
 binding = "VISITOR_COUNT"
-id = "REPLACE-WITH-VISITOR-COUNT-NAMESPACE-ID"
+id = "d1f069591a1f4156a5b449ce30dc6926"
 
 [[kv_namespaces]]
 binding = "TRACK_PLAYS"
-id = "REPLACE-WITH-TRACK-PLAYS-NAMESPACE-ID"
+id = "6f148539682545e899ef5098da76e169"
