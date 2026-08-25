@@ -6,7 +6,8 @@
  * load from a viewer's local machine). Drop your masters into
  * /assets/audio/ using these filenames, or update the paths below.
  *
- * `duration` is a placeholder — update it to match your actual files.
+ * `duration` is a placeholder — the site auto-detects the real length
+ * from each file's own metadata once it's reachable.
  */
 const TRACKS = [
   {
@@ -25,9 +26,23 @@ const TRACKS = [
   },
   {
     num: 3,
+    title: "The Trail",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/03-the-trail.mp3"
+  },
+  {
+    num: 4,
     title: "Anywhere, Any Day",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/04-anywhere-any-day.mp3"
+  },
+  {
+    num: 5,
+    title: "Be Here Now",
     note: "closer",
     duration: "--:--",
-    src: "assets/audio/03-anywhere-any-day.mp3"
+    src: "assets/audio/05-be-here-now.mp3"
   }
 ];
