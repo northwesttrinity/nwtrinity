@@ -41,8 +41,15 @@ const TRACKS = [
   {
     num: 5,
     title: "Be Here Now",
-    note: "closer",
+    note: "",
     duration: "--:--",
     src: "assets/audio/05-be-here-now.mp3"
+  },
+   {
+    num: 6,
+    title: "Milky Way Gaze",
+    note: "closer",
+    duration: "--:--",
+    src: "assets/audio/06-milky-way-gaze.mp3"
   }
 ];
