@@ -13,7 +13,7 @@ const TRACKS = [
   {
     num: 1,
     title: "The Timberline",
-    note: "opener",
+    note: "",
     duration: "--:--",
     src: "assets/audio/01-the-timberline.mp3"
   },
@@ -48,8 +48,15 @@ const TRACKS = [
    {
     num: 6,
     title: "Milky Way Gaze",
-    note: "closer",
+    note: "",
     duration: "--:--",
     src: "assets/audio/06-milky-way-gaze.mp3"
+  }
+    {
+    num: 7,
+    title: "Bass Strait Blues",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/07-bass-strait-blues.mp3"
   }
 ];
