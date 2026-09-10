@@ -45,14 +45,14 @@ const TRACKS = [
     duration: "--:--",
     src: "assets/audio/05-be-here-now.mp3"
   },
-   {
+  {
     num: 6,
     title: "Milky Way Gaze",
     note: "",
     duration: "--:--",
     src: "assets/audio/06-milky-way-gaze.mp3"
-  }
-    {
+  },
+  {
     num: 7,
     title: "Bass Strait Blues",
     note: "",
