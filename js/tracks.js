@@ -54,9 +54,9 @@ const TRACKS = [
   },
   {
     num: 7,
-    title: "Bass Strait Blues",
+    title: "Brunswick Road Blues",
     note: "",
     duration: "--:--",
-    src: "assets/audio/07-bass-strait-blues.mp3"
+    src: "assets/audio/07-brunswick-road-blues.mp3"
   }
 ];
