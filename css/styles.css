@@ -127,48 +127,8 @@ button{ font-family: inherit; cursor: pointer; }
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 32px 96px;
+  padding: 160px 32px 96px;
 }
-.eyebrow{
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-ember);
-  margin: 0 0 18px;
-}
-.hero-title{
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(56px, 12vw, 148px);
-  line-height: 0.92;
-  letter-spacing: -0.01em;
-  color: var(--fg-0);
-  margin: 0 0 40px;
-}
-.hero-actions{ display: flex; gap: 16px; }
-
-.btn{
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 13px 28px;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-radius: var(--radius);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
-}
-.btn-primary{
-  background: var(--accent-ember);
-  color: var(--bg-0);
-  font-weight: 500;
-}
-.btn-primary:hover{ background: #f2b06a; }
-.btn-ghost{
-  border-color: var(--line-strong);
-  color: var(--fg-1);
-}
-.btn-ghost:hover{ border-color: var(--fg-1); color: var(--fg-0); }
 
 .scroll-cue{
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
@@ -187,8 +147,6 @@ button{ font-family: inherit; cursor: pointer; }
 /* ============================================================
    RECORDINGS / TRACKLIST
    ============================================================ */
-.recordings{ padding: 120px 0 100px; background: var(--bg-1); }
-
 .tracklist{ border-top: 1px solid var(--line); }
 
 .track-row{
@@ -431,6 +389,7 @@ input[type="range"]::-moz-range-thumb{
 .vol-btn svg{ width: 16px; height: 16px; }
 
 @media (max-width: 860px){
+  .hero-content{ padding-top: 120px; }
   .main-nav{ gap: 18px; }
   .player-bar-inner{
     grid-template-columns: 1fr auto;
