@@ -273,27 +273,6 @@ button{ font-family: inherit; cursor: pointer; }
 .track-cast[hidden]{ display: none; }
 
 /* ============================================================
-   ABOUT
-   ============================================================ */
-.about{ padding: 60px 0 130px; background: var(--bg-1); }
-.about-inner{
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 32px;
-  align-items: flex-start;
-  max-width: 720px;
-}
-.about-text{
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(19px, 2.6vw, 24px);
-  line-height: 1.6;
-  color: var(--fg-1);
-  margin: 6px 0 0;
-}
-
-/* ============================================================
    FOOTER
    ============================================================ */
 .site-footer{
@@ -462,7 +441,6 @@ input[type="range"]::-moz-range-thumb{
 
 @media (max-width: 860px){
   .main-nav{ gap: 18px; }
-  .about-inner{ grid-template-columns: 1fr; }
   .player-bar-inner{
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
