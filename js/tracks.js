@@ -58,5 +58,12 @@ const TRACKS = [
     note: "",
     duration: "--:--",
     src: "assets/audio/07-brunswick-road-blues.mp3"
+  },
+  {
+    num: 8,
+    title: "Silver Bullet",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/08-silver-bullet.mp3"
   }
 ];
