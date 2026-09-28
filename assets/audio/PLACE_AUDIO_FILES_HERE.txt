@@ -3,17 +3,28 @@ referenced in js/tracks.js:
 
   01-the-timberline.mp3
   02-pdx-in-the-mist.mp3
-  03-anywhere-any-day.mp3
+  03-the-trail.mp3
+  04-anywhere-any-day.mp3
+  05-be-here-now.mp3
+  06-milky-way-gaze.mp3
+  07-brunswick-road-blues.mp3
+  08-silver-bullet.mp3
+  09-a-quiet-light.mp3
 
-Notes:
+Note: the numbers in these filenames are just labels — the order
+tracks appear on the site is controlled by js/tracks.js, not by the
+filenames, so files never need renaming when the order changes.
+
+Other notes:
 - MP3 (audio/mpeg) is the safest format for both the browser <audio>
   element and Chromecast's default receiver.
 - Chromecast loads media directly from the receiver device, so files
   must be reachable at a public HTTPS URL — this only works once the
   site is deployed (it will NOT work when just opening index.html
   locally on your computer).
-- Track durations in js/tracks.js are placeholders ("--:--") — update
-  them to match your actual files once you know the exact runtimes.
-- To rename tracks, reorder them, or change titles/durations, edit
-  js/tracks.js — the tracklist and player are generated from that file.
+- Track durations in js/tracks.js are placeholders ("--:--") — the
+  site auto-detects the real length from each file's own metadata
+  once it's reachable, so you don't need to fill these in by hand.
+- To rename tracks, reorder them, or change titles, edit js/tracks.js
+  — the tracklist and player are generated from that file.
 - Delete this file once your audio is in place.
