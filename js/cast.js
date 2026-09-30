@@ -15,8 +15,9 @@ const TimberlineCast = (function () {
   const listeners = [];
   const endedListeners = [];
 
-  let mediaSessionRef = null;
-  let mediaUpdateListener = null;
+  let remotePlayer = null;
+  let remotePlayerController = null;
+  let lastIdleNotified = false;
 
   function notify() {
     listeners.forEach((fn) => fn(state()));
@@ -42,34 +43,29 @@ const TimberlineCast = (function () {
    * playing on the receiver device. This is how auto-advance-to-next
    * works while casting — the local <audio> element never actually
    * plays anything in that mode, so its own "ended" event never fires.
+   *
+   * Uses cast.framework.RemotePlayerController, the SDK's documented
+   * way to observe remote player state — a plain Media.addUpdateListener
+   * on the raw session object turned out not to fire reliably here.
    */
   function onRemoteEnded(fn) {
     endedListeners.push(fn);
   }
 
-  function detachMediaListener() {
-    if (mediaSessionRef && mediaUpdateListener) {
-      mediaSessionRef.removeUpdateListener(mediaUpdateListener);
+  function handleRemotePlayerStateChanged() {
+    if (!remotePlayer) return;
+    const isIdle = remotePlayer.playerState === chrome.cast.media.PlayerState.IDLE;
+    if (!isIdle) {
+      lastIdleNotified = false;
+      return;
     }
-    mediaSessionRef = null;
-    mediaUpdateListener = null;
-  }
-
-  function attachMediaListener(mediaSession) {
-    detachMediaListener();
-    if (!mediaSession) return;
-    mediaSessionRef = mediaSession;
-    mediaUpdateListener = () => {
-      if (!mediaSessionRef) return;
-      const finished =
-        mediaSessionRef.playerState === chrome.cast.media.PlayerState.IDLE &&
-        mediaSessionRef.idleReason === chrome.cast.media.IdleReason.FINISHED;
-      if (finished) {
-        detachMediaListener();
-        notifyEnded();
-      }
-    };
-    mediaSessionRef.addUpdateListener(mediaUpdateListener);
+    if (lastIdleNotified) return; // don't double-fire for the same idle period
+    const media = currentSession && currentSession.getMediaSession();
+    const finished = media && media.idleReason === chrome.cast.media.IdleReason.FINISHED;
+    if (finished) {
+      lastIdleNotified = true;
+      notifyEnded();
+    }
   }
 
   function init() {
@@ -83,6 +79,13 @@ const TimberlineCast = (function () {
 
     available = true;
 
+    remotePlayer = new cast.framework.RemotePlayer();
+    remotePlayerController = new cast.framework.RemotePlayerController(remotePlayer);
+    remotePlayerController.addEventListener(
+      cast.framework.RemotePlayerEventType.PLAYER_STATE_CHANGED,
+      handleRemotePlayerStateChanged
+    );
+
     context.addEventListener(
       cast.framework.CastContextEventType.SESSION_STATE_CHANGED,
       (evt) => {
@@ -90,7 +93,6 @@ const TimberlineCast = (function () {
         if (evt.sessionState === S.SESSION_STARTED || evt.sessionState === S.SESSION_RESUMED) {
           currentSession = context.getCurrentSession();
         } else if (evt.sessionState === S.SESSION_ENDED) {
-          detachMediaListener();
           currentSession = null;
         }
         notify();
@@ -120,15 +122,15 @@ const TimberlineCast = (function () {
     }
     if (!currentSession) return;
 
+    lastIdleNotified = false;
+
     const mediaInfo = new chrome.cast.media.MediaInfo(absoluteUrl, "audio/mpeg");
     mediaInfo.metadata = new chrome.cast.media.MusicTrackMediaMetadata();
     mediaInfo.metadata.title = track.title;
     mediaInfo.metadata.artist = "Northwest Trinity";
 
     const request = new chrome.cast.media.LoadRequest(mediaInfo);
-    const result = await currentSession.loadMedia(request);
-    attachMediaListener(currentSession.getMediaSession());
-    return result;
+    return currentSession.loadMedia(request);
   }
 
   function pauseRemote() {
@@ -143,7 +145,6 @@ const TimberlineCast = (function () {
 
   function endSession() {
     if (currentSession) {
-      detachMediaListener();
       context.endCurrentSession(true);
       currentSession = null;
       notify();
