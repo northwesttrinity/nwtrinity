@@ -16,62 +16,76 @@
 const TRACKS = [
   {
     num: 1,
+    title: "Two Fools on Fire",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/10-two-fools-on-fire.mp3"
+  },
+  {
+    num: 2,
+    title: "Trade Wind Tide",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/11-trade-wind-tide.mp3"
+  },
+  {
+    num: 3,
     title: "A Quiet Light",
     note: "",
     duration: "--:--",
     src: "assets/audio/09-a-quiet-light.mp3"
   },
   {
-    num: 2,
+    num: 4,
     title: "Silver Bullet",
     note: "",
     duration: "--:--",
     src: "assets/audio/08-silver-bullet.mp3"
   },
   {
-    num: 3,
+    num: 5,
     title: "Brunswick Road Blues",
     note: "",
     duration: "--:--",
     src: "assets/audio/07-brunswick-road-blues.mp3"
   },
   {
-    num: 4,
+    num: 6,
     title: "Milky Way Gaze",
     note: "",
     duration: "--:--",
     src: "assets/audio/06-milky-way-gaze.mp3"
   },
   {
-    num: 5,
+    num: 7,
     title: "Be Here Now",
     note: "",
     duration: "--:--",
     src: "assets/audio/05-be-here-now.mp3"
   },
   {
-    num: 6,
+    num: 8,
     title: "Anywhere, Any Day",
     note: "",
     duration: "--:--",
     src: "assets/audio/04-anywhere-any-day.mp3"
   },
   {
-    num: 7,
+    num: 9,
     title: "The Trail",
     note: "",
     duration: "--:--",
     src: "assets/audio/03-the-trail.mp3"
   },
   {
-    num: 8,
+    num: 10,
     title: "PDX In The Mist",
     note: "",
     duration: "--:--",
     src: "assets/audio/02-pdx-in-the-mist.mp3"
   },
   {
-    num: 9,
+    num: 11,
     title: "The Timberline",
     note: "",
     duration: "--:--",
