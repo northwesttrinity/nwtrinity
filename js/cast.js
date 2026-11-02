@@ -18,6 +18,9 @@ const TimberlineCast = (function () {
   let remotePlayer = null;
   let remotePlayerController = null;
   let lastIdleNotified = false;
+  let lastProgress = 0;      // last known playback position (s)
+  let lastDuration = 0;      // last known track length (s)
+  let wasActive = false;     // was PLAYING/BUFFERING/PAUSED just before IDLE
 
   function notify() {
     listeners.forEach((fn) => fn(state()));
@@ -54,18 +57,34 @@ const TimberlineCast = (function () {
 
   function handleRemotePlayerStateChanged() {
     if (!remotePlayer) return;
-    const isIdle = remotePlayer.playerState === chrome.cast.media.PlayerState.IDLE;
+    const PS = chrome.cast.media.PlayerState;
+    const isIdle = remotePlayer.playerState === PS.IDLE;
     if (!isIdle) {
       lastIdleNotified = false;
+      wasActive = true;
       return;
     }
-    if (lastIdleNotified) return; // don't double-fire for the same idle period
+    if (lastIdleNotified || !wasActive) return; // don't double-fire
+    wasActive = false;
+
+    // Primary signal: the receiver says the media FINISHED.
     const media = currentSession && currentSession.getMediaSession();
-    const finished = media && media.idleReason === chrome.cast.media.IdleReason.FINISHED;
+    let finished = !!(media && media.idleReason === chrome.cast.media.IdleReason.FINISHED);
+
+    // Fallback: some receivers drop the media session on finish, so also
+    // treat "went idle within a few seconds of the end" as finished.
+    if (!finished && lastDuration > 0 && lastDuration - lastProgress < 3) finished = true;
+
     if (finished) {
       lastIdleNotified = true;
       notifyEnded();
     }
+  }
+
+  function handleRemoteTime() {
+    if (!remotePlayer) return;
+    if (remotePlayer.currentTime) lastProgress = remotePlayer.currentTime;
+    if (remotePlayer.duration) lastDuration = remotePlayer.duration;
   }
 
   function init() {
@@ -84,6 +103,15 @@ const TimberlineCast = (function () {
     remotePlayerController.addEventListener(
       cast.framework.RemotePlayerEventType.PLAYER_STATE_CHANGED,
       handleRemotePlayerStateChanged
+    );
+
+    remotePlayerController.addEventListener(
+      cast.framework.RemotePlayerEventType.CURRENT_TIME_CHANGED,
+      handleRemoteTime
+    );
+    remotePlayerController.addEventListener(
+      cast.framework.RemotePlayerEventType.DURATION_CHANGED,
+      handleRemoteTime
     );
 
     context.addEventListener(
@@ -123,6 +151,9 @@ const TimberlineCast = (function () {
     if (!currentSession) return;
 
     lastIdleNotified = false;
+    wasActive = false;
+    lastProgress = 0;
+    lastDuration = 0;
 
     const mediaInfo = new chrome.cast.media.MediaInfo(absoluteUrl, "audio/mpeg");
     mediaInfo.metadata = new chrome.cast.media.MusicTrackMediaMetadata();

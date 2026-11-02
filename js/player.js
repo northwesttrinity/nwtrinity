@@ -115,12 +115,31 @@
 
   function localLoadAndPlay(track, autoplay) {
     audio.src = track.src;
+    audio.load();
     pbStatus.textContent = "Loading…";
     if (autoplay) {
-      audio.play().catch(() => {
+      const attempt = () => audio.play().catch(() => {
         pbStatus.textContent = "Tap play to listen";
       });
+      attempt();
     }
+    updateMediaSession(track);
+  }
+
+  // Media Session keeps track advance working with the screen locked /
+  // tab in the background, and wires up lock-screen and headset buttons.
+  function updateMediaSession(track) {
+    if (!("mediaSession" in navigator)) return;
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: track.title,
+        artist: "Northwest Trinity"
+      });
+      navigator.mediaSession.setActionHandler("nexttrack", next);
+      navigator.mediaSession.setActionHandler("previoustrack", prev);
+      navigator.mediaSession.setActionHandler("play", play);
+      navigator.mediaSession.setActionHandler("pause", pause);
+    } catch (_) {}
   }
 
   function play() {
@@ -192,6 +211,22 @@
   });
   audio.addEventListener("pause", () => setPlayingUI(false));
   audio.addEventListener("ended", next);
+
+  // If a track can't load (e.g. its audio file hasn't been uploaded yet),
+  // skip to the next one instead of silently halting the whole chain.
+  let errorSkips = 0;
+  audio.addEventListener("error", () => {
+    if (isCasting || currentIndex === -1) return;
+    if (errorSkips >= TRACKS.length) { errorSkips = 0; pbStatus.textContent = "Track unavailable"; return; }
+    errorSkips++;
+    if (currentIndex < TRACKS.length - 1) {
+      pbStatus.textContent = "Track unavailable — skipping";
+      loadTrack(currentIndex + 1, { autoplay: true });
+    } else {
+      pbStatus.textContent = "Track unavailable";
+    }
+  });
+  audio.addEventListener("playing", () => { errorSkips = 0; });
   audio.addEventListener("loadedmetadata", () => {
     pbDuration.textContent = fmtTime(audio.duration);
     pbSeek.max = audio.duration || 100;
