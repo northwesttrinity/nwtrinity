@@ -16,66 +16,66 @@
 const TRACKS = [
   {
     num: 1,
+    title: "All Along",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/16-all-along.mp3"
+  },
+  {
+    num: 2,
     title: "Rivers of My Mind",
     note: "",
     duration: "--:--",
     src: "assets/audio/15-rivers-of-my-mind.mp3"
   },
   {
-    num: 2,
+    num: 3,
     title: "The Wilderness",
     note: "",
     duration: "--:--",
     src: "assets/audio/14-the-wilderness.mp3"
   },
   {
-    num: 3,
+    num: 4,
     title: "Wrong Side of Leven",
     note: "",
     duration: "--:--",
     src: "assets/audio/12-wrong-side-of-leven.mp3"
   },
   {
-    num: 4,
+    num: 5,
     title: "Two Fools on Fire",
     note: "",
     duration: "--:--",
     src: "assets/audio/10-two-fools-on-fire.mp3"
   },
   {
-    num: 5,
+    num: 6,
     title: "Trade Wind Tide",
     note: "",
     duration: "--:--",
     src: "assets/audio/11-trade-wind-tide.mp3"
   },
   {
-    num: 6,
+    num: 7,
     title: "A Quiet Light",
     note: "",
     duration: "--:--",
     src: "assets/audio/09-a-quiet-light.mp3"
   },
   {
-    num: 7,
+    num: 8,
     title: "Silver Bullet",
     note: "",
     duration: "--:--",
     src: "assets/audio/08-silver-bullet.mp3"
   },
   {
-    num: 8,
+    num: 9,
     title: "Brunswick Road Blues",
     note: "",
     duration: "--:--",
     src: "assets/audio/07-brunswick-road-blues.mp3"
-  },
-  {
-    num: 9,
-    title: "Milky Way Gaze",
-    note: "",
-    duration: "--:--",
-    src: "assets/audio/06-milky-way-gaze.mp3"
   },
   {
     num: 10,
