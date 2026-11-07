@@ -44,7 +44,7 @@ const TRACKS = [
   },
   {
     num: 5,
-    title: "Two Fools on Fire",
+    title: "Fools on Fire",
     note: "",
     duration: "--:--",
     src: "assets/audio/10-two-fools-on-fire.mp3"
