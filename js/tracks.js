@@ -16,104 +16,111 @@
 const TRACKS = [
   {
     num: 1,
+    title: "Already Here",
+    note: "",
+    duration: "--:--",
+    src: "assets/audio/18-already-here.mp3"
+  },
+  {
+    num: 2,
     title: "All Along",
     note: "",
     duration: "--:--",
     src: "assets/audio/16-all-along.mp3"
   },
   {
-    num: 2,
+    num: 3,
     title: "Rivers of My Mind",
     note: "",
     duration: "--:--",
     src: "assets/audio/15-rivers-of-my-mind.mp3"
   },
   {
-    num: 3,
+    num: 4,
     title: "The Wilderness",
     note: "",
     duration: "--:--",
     src: "assets/audio/14-the-wilderness.mp3"
   },
   {
-    num: 4,
+    num: 5,
     title: "Wrong Side of Leven",
     note: "",
     duration: "--:--",
     src: "assets/audio/12-wrong-side-of-leven.mp3"
   },
   {
-    num: 5,
+    num: 6,
     title: "Fools on Fire",
     note: "",
     duration: "--:--",
     src: "assets/audio/10-two-fools-on-fire.mp3"
   },
   {
-    num: 6,
-    title: "Trade Wind Tide",
+    num: 7,
+    title: "Waves Roll Gently In",
     note: "",
     duration: "--:--",
-    src: "assets/audio/11-trade-wind-tide.mp3"
+    src: "assets/audio/17-waves-roll-gently-in.mp3"
   },
   {
-    num: 7,
+    num: 8,
     title: "A Quiet Light",
     note: "",
     duration: "--:--",
     src: "assets/audio/09-a-quiet-light.mp3"
   },
   {
-    num: 8,
+    num: 9,
     title: "Silver Bullet",
     note: "",
     duration: "--:--",
     src: "assets/audio/08-silver-bullet.mp3"
   },
   {
-    num: 9,
+    num: 10,
     title: "Brunswick Road Blues",
     note: "",
     duration: "--:--",
     src: "assets/audio/07-brunswick-road-blues.mp3"
   },
   {
-    num: 10,
+    num: 11,
     title: "Be Here Now",
     note: "",
     duration: "--:--",
     src: "assets/audio/05-be-here-now.mp3"
   },
   {
-    num: 11,
+    num: 12,
     title: "Anywhere, Any Day",
     note: "",
     duration: "--:--",
     src: "assets/audio/04-anywhere-any-day.mp3"
   },
   {
-    num: 12,
+    num: 13,
     title: "The Trail",
     note: "",
     duration: "--:--",
     src: "assets/audio/03-the-trail.mp3"
   },
   {
-    num: 13,
+    num: 14,
     title: "PDX In The Mist",
     note: "",
     duration: "--:--",
     src: "assets/audio/02-pdx-in-the-mist.mp3"
   },
   {
-    num: 14,
+    num: 15,
     title: "The Timberline",
     note: "",
     duration: "--:--",
     src: "assets/audio/01-the-timberline.mp3"
   },
   {
-    num: 15,
+    num: 16,
     title: "Buckley's & None",
     note: "",
     duration: "--:--",
